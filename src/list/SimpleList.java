@@ -166,6 +166,10 @@ public class SimpleList<T>{
 				if(filter.test(n.getNext().getE())) {
 					n.setNext(n.getNext().getNext());
 				}
+			}else {
+				if(filter.test(last.getE())) {
+					remove(last.getE());
+				}
 			}
 		}
 		updateLast();

@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import list.SimpleList;
 
 public class Tests {
@@ -7,20 +10,26 @@ public class Tests {
 	public static void main(String[] args) {
 
 		SimpleList<String> list = new SimpleList<>();
+		Collection<String> nomes = new ArrayList<>();
 		
-		list.add("Leonardo");
-		list.add("Aline");
-		list.add("Sei la");
-		list.add("Lacerda");
+		nomes.add("Leonardo");
+		nomes.add("Aline");
 		
-		list.remove("Lacerda");
+		Collection<String> frutas = new ArrayList<>();
 		
-		for(int i = 0; i < list.size(); i ++) {
-			System.out.println(list.get(i));
-		}
+		frutas.add("Maçã");
+		frutas.add("Banana");
 		
+		list.addAll(nomes);
+		list.addAll(frutas);
+		
+		list.removeIf(node -> frutas.contains(node));
 		
 		System.out.println(list.toString());
+		
+		System.out.printf("\nEssa lista tem %d elementos.\n\n", list.size());
+		
+		System.out.println((list.contains("Maçã") ? "Essa lista contém maçã" : "Essa lista não contém maçã"));
 		
 		
 	}
